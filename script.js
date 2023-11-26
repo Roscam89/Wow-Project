@@ -50,7 +50,7 @@ for (let i = 0; i < characterArr.length; i++) {
   drop[drop.length] = new Option(characterArr[i].name);
 }
 
-const a = function () {
+const randomCharacterSelect = function () {
   let iChar = Math.floor(Math.random() * characterArr.length);
   let specArr = characterArr[iChar].specialization;
   let iSpec = Math.floor(Math.random() * specArr.length);
@@ -63,4 +63,4 @@ const a = function () {
   }
 };
 
-mainButton.addEventListener("click", a);
+mainButton.addEventListener("click", randomCharacterSelect);
