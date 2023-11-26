@@ -4,6 +4,7 @@ const charClass = document.querySelector(".character-Class");
 const charSpec = document.querySelector(".character-Spec");
 const mainButton = document.querySelector(".main-Button");
 const drop = document.getElementById("character-Class");
+const resetButton = document.querySelector(".reset");
 
 const characterArr = [
   {
@@ -50,6 +51,19 @@ for (let i = 0; i < characterArr.length; i++) {
   drop[drop.length] = new Option(characterArr[i].name);
 }
 
+drop.addEventListener("change", function () {
+  charClass.innerHTML = drop.value;
+
+  for (let i = 0; i < characterArr.length; i++) {
+    if (drop.value === characterArr[i].name) {
+      let specArr = characterArr[i].specialization;
+      let iSpec = Math.floor(Math.random() * specArr.length);
+      charSpec.innerHTML = specArr[iSpec];
+    }
+    console.log(characterArr[i].name);
+  }
+});
+
 const randomCharacterSelect = function () {
   let iChar = Math.floor(Math.random() * characterArr.length);
   let specArr = characterArr[iChar].specialization;
@@ -57,10 +71,11 @@ const randomCharacterSelect = function () {
 
   charClass.innerHTML = characterArr[iChar].name;
   charSpec.innerHTML = specArr[iSpec];
-
-  for (let i = 0; i < characterArr.length; i++) {
-    // console.log(characterArr[i].name);
-  }
 };
 
 mainButton.addEventListener("click", randomCharacterSelect);
+resetButton.addEventListener("click", function () {
+  charClass.innerHTML = "";
+  charSpec.innerHTML = "";
+  drop.value = "";
+});
