@@ -1,0 +1,22 @@
+.UI {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 40px;
+}
+
+.character-Class {
+  text-align: center;
+}
+
+.character-Spec {
+  text-align: center;
+}
+
+.main-Button {
+  margin-right: 20px;
+  font-size: large;
+}
+
+.drop {
+  font-size: large;
+}
